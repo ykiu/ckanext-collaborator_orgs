@@ -4,9 +4,12 @@
 {% block page_primary_action %}
   {% if h.check_access('package_collaborator_create', {'id': pkg_dict.id})%}
     <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-plus-square"></i> {{_('Add Collaborators') }}
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
+      <a href="#" class="btn btn-primary dropdown-toggle" type="button" id="dropdownCollaborators" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-share"></i>
+        {{ _('Add Collaborators') }}
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownCollaborators">
         <li>{% link_for _('Collaborator User'), named_route='dataset.new_collaborator', id=pkg_dict.name %}</li>
         <li>{% link_for _('Collaborator Organization'), named_route='collaborator_orgs.new', id=pkg_dict.name %}
       </ul>
