@@ -1,6 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from ckan.lib.plugins import DefaultPermissionLabels
+from ckan.lib.plugins import DefaultPermissionLabels, DefaultTranslation
 
 import logging
 
@@ -12,7 +12,7 @@ from ckanext.collaborator_orgs.cli import get_commands
 
 log = logging.getLogger(__name__)
 
-class CollaboratorOrgsPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
+class CollaboratorOrgsPlugin(plugins.SingletonPlugin, DefaultPermissionLabels, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IAuthFunctions)
@@ -20,6 +20,7 @@ class CollaboratorOrgsPlugin(plugins.SingletonPlugin, DefaultPermissionLabels):
     plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IClick)
+    plugins.implements(plugins.ITranslation)
 
     # IConfigurer
 
