@@ -19,7 +19,7 @@
 
   {% set org_collaborators = h.collaborator_orgs_get_collaborators(pkg_dict)%}
   {% set org_count = org_collaborators|length %}
-  {% set org_collaborators_count = ungettext('{count} Collaborator Organization', '{count} Collaborator Organizations', count).format(count=org_count) %}
+  {% set org_collaborators_count = ungettext('{count} Collaborator Organization', '{count} Collaborator Organizations', org_count).format(count=org_count) %}
   <h3 class="page-heading">{{ org_collaborators_count }}</h3>
   <table class="table table-header table-hover table-bordered">
     <thead>
